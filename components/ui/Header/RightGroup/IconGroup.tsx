@@ -35,13 +35,15 @@ const DrakModeItem = () => {
       onClick={() => toggle()}
       icon={<IconMoon />}
       p={18}
-      sx={{
-        borderBottom: '1px solid #eee',
+      sx={(theme) => ({
+        borderBottom:
+          theme.colorScheme === 'dark'
+            ? '1px solid #2b2b2b'
+            : '1px solid #eaeaea',
         borderRadius: '0px',
         fontSize: 15,
         fontWeight: 'bold',
-        cursor: 'pointer',
-      }}
+      })}
       key="darkMode"
     >
       <Group>

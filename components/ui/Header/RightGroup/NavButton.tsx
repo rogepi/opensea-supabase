@@ -20,12 +20,14 @@ const NavButton = (props: NavButtonProps) => {
           title={props.title}
           onClick={props.onClick}
           variant="transparent"
-          sx={{
+          sx={(theme) => ({
             height: '35px',
             width: '35px',
             color: ICONCOLOR,
-            ':hover': { color: HOVERCOLOR },
-          }}
+            '&:hover': {
+              color: theme.colorScheme === 'dark' ? '#ddd' : HOVERCOLOR,
+            },
+          })}
         >
           {props.children}
         </ActionIcon>

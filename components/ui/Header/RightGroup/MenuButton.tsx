@@ -37,6 +37,7 @@ const MenuButton = (props: MenuButtonProps) => {
             border: 'none',
             borderRadius: '0px 0px 15px 15px',
             borderShadow: 'rgb(4 17 29 / 25%) 0px 0px 1px 0px',
+            overflow: 'hidden',
           }}
         >
           {props.items.map((item) => {
@@ -46,12 +47,17 @@ const MenuButton = (props: MenuButtonProps) => {
                 href={item.href ?? ''}
                 icon={item.icon}
                 p={18}
-                sx={{
-                  borderBottom: '1px solid #eee',
+                sx={(theme) => ({
+                  borderBottom:
+                    theme.colorScheme === 'dark'
+                      ? '1px solid #2b2b2b'
+                      : '1px solid #eaeaea',
                   borderRadius: '0px',
                   fontSize: 15,
+                  color: '#444',
                   fontWeight: 'bold',
-                }}
+                  '&:hover': { boxShadow: '3px 0px 3px 1px  #ddd ' },
+                })}
                 key={item.title}
               >
                 {item.title}

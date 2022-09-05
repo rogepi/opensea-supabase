@@ -63,6 +63,7 @@ const ExploreItems: MenuItem[] = exploreList.map(
   (item) =>
     ({
       title: item.title,
+      href: item.title.toLocaleLowerCase().replace(' ', '-'),
       icon: (
         <Image
           src={`/svgs/${item.svg}.svg`}
@@ -92,13 +93,16 @@ const ResourcesItems: MenuItem[] = [
 const LogoItem = () => {
   return (
     <Menu.Item
-      sx={{
-        borderBottom: '1px solid #eee',
+      sx={(theme) => ({
+        borderBottom:
+          theme.colorScheme === 'dark'
+            ? '1px solid #2b2b2b'
+            : '1px solid #eaeaea',
         borderRadius: '0px',
         fontSize: 15,
         fontWeight: 'bold',
         cursor: 'pointer',
-      }}
+      })}
       key="logos"
     >
       <Group>

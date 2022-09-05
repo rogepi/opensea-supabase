@@ -14,10 +14,12 @@ const BlankLink = (props: BlankLinkProps) => {
     <Link href={props.href}>
       <a href={props.href} target="_blank" rel="noreferrer">
         <Box
-          sx={{
+          sx={(theme) => ({
             color: ICONCOLOR,
-            ':hover': { color: HOVERCOLOR },
-          }}
+            ':hover': {
+              color: theme.colorScheme === 'dark' ? '#ddd' : HOVERCOLOR,
+            },
+          })}
         >
           {props.children}
         </Box>

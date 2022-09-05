@@ -26,7 +26,9 @@ export default function Layout({ children, meta }: Props) {
         <link rel="icon" href="/opensea.svg" />
       </Head>
 
-      <AppShell header={<LayoutHeader />}>{children}</AppShell>
+      <AppShell styles={{ main: { padding: 'md' } }} header={<LayoutHeader />}>
+        {children}
+      </AppShell>
     </>
   )
 }

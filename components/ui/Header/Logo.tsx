@@ -1,9 +1,10 @@
-import { Anchor, Box, Text } from '@mantine/core'
+import { Anchor, Box, Text, useMantineTheme } from '@mantine/core'
 import Image from 'next/image'
 import Link from 'next/link'
 import OpenSea from '../../../public/opensea.svg'
 
 const Logo = () => {
+  const dark = useMantineTheme().colorScheme === 'dark'
   return (
     <>
       <Link href="/" passHref>
@@ -14,7 +15,10 @@ const Logo = () => {
             <Image src={OpenSea} alt="logo of opensea" height={40} width={40} />
             <Text
               color={'black'}
-              sx={{ display: 'inline-block' }}
+              sx={[
+                { display: 'inline-block' },
+                dark ? { color: 'white' } : { color: 'black' },
+              ]}
               className="text-white"
               ml={'xs'}
               size={23}
